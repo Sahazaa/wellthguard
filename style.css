@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*creating a  variable,this would be our color palette*/
+:root{
+--accent-color:rgb(130, 198, 130);
+--base-color:white;
+--text-color:black;
+--input-color:#F3F0FF;
+}
+*{
+    margin:0;
+    padding:0;
+}
+html{
+    font-family:Poppins,Segoe UI,sans-serif;
+    font-size:12pt;
+    text-align:center;
+    color:var(--text-color);
+}
+body{
+    min-height:100vh;
+    background-image:url(background.jpg);
+    background-size:cover;/*show the entire image*/
+    background-position:right;
+    overflow:hidden; /*not scrollabe page*/
+}
+.wrapper {
+    background-color: white;
+    height:100vh;
+    width: max(40%,600px); /*takes the biggest value*/
+    padding:10px;
+    border-radius:0 20px 20px 0;
+    box-sizing:border-box;/*borders and padding will be created inwards*/
+   /*centering the content*/
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;/*justify content is horizontal alignement*/
+    
+}
+h1{
+    font-size:3rem;/*3 time the initial font-size*/
+    font-weight:900;
+    text-transform:uppercase;
+}
+form{
+    width:min(400px,100%);/*will return the smaller value*/
+    margin-top:20px;
+    margin-bottom:50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;/*to often organize layout inside the form*/
+
+
+}
+form > div {/*only the direct child div element*/
+width:100%;
+display:flex;
+justify-content:center;
+/*to turn this into a flexbox layout, to foster responsive layouts,elements*/
+}
+form label{
+    flex-shrink:0;/*because we want it a fixed size of 50px*50px */
+    height:50px;
+    width:50px;
+    background-color:var(--accent-color);
+    fill:var(--base-color);
+    color:var(--base-color);/*using the normal color property for the @ cause it is just a normal text inside a span*/
+    border-radius:10px 0 0 10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.5rem;
+
+}
+form input{
+    box-sizing:border-box;/*to maintain a consistent size*/
+    
+}
