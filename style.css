@@ -4,7 +4,7 @@
 --accent-color:rgb(130, 198, 130);
 --base-color:white;
 --text-color:black;
---input-color:#F3F0FF;
+--input-color:#d2ebea;
 }
 *{
     margin:0;
@@ -75,5 +75,75 @@ form label{
 }
 form input{
     box-sizing:border-box;/*to maintain a consistent size*/
+    flex-grow:1;
+    min-width:0;/*to have fully responsive resizing of the element*/
+    height:50px;/*same as the labels*/
+    padding:1em;
+    font:inherit;
+    border-radius:0 10px 10px 0;
+     border:2px solid var(--input-color);
+     border-left:none;
+    background-color:var(--input-color);
+    transition:150ms ease;/*adding a transition to make it smoother*/
+}
+form input:hover{
+   border-color:var(--accent-color);/*changing its color now*/
+
+}
+form input:focus{
+  outline:none;  /*having no focus effect going on*/
+  border-color:var(--text-color);
+
+}
+div:has(input:focus)/*all of the div with the input where the focus is applied*/ >/*specifying to direct */ label{
+    background-color:var(--text-color);
+}
+form input::placeholder{
+    color:var(--text-color);
+    opacity:0.5;
+  
+}
+form button{
+    margin-top:10px;
+    border:none;
+    border-radius:1000px;
+    padding:.85em 4em;/*font size of the element*/
+    background-color:var(--accent-color);
+    color:var(--base-color);
+    font:inherit;
+    font-weight:600;
+    text-transform:uppercase;
+    cursor:pointer;/*improving the hover state*/
+    transition:150ms ease;/*making the color change smoother*/
+}
+form button:hover{
+background-color:var(--text-color);
+}
+form button:focus{
+    /*removing the focus around*/
+    outline:none;
+    background-color:var(--text-color);
+
+}
+a{
+    text-decoration:none;
+    color:var(--accent-color);
+
+}
+a:hover{
+    text-decoration:underline;
+}
+/*making it responsive using a media query*/
+@media(max-width:1100px){
+    .wrapper{
+        width:min(600px,100%);/*it will take either 600px or 100% depending on the screen */
+/*so in smartphone screens,they aren't gonna see the background image anyways*/
+    }
+}
+.incorrect label /*accessing the label inside*/ {
+    background-color:#f06272;
+
+}
+.incorrect input {
     
 }
