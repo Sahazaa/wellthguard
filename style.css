@@ -140,10 +140,10 @@ a:hover{
 /*so in smartphone screens,they aren't gonna see the background image anyways*/
     }
 }
-.incorrect label /*accessing the label inside*/ {
+form div.incorrect label /*accessing the label inside*/ {
     background-color:#f06272;
 
 }
-.incorrect input {
-    
-}
+form div.incorrect input {/*also accessing the input inside*/
+    border-color:#f06272;
+}/*the root with higher specificity wins;so we add its specificity*/
