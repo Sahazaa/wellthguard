@@ -61,17 +61,18 @@ function getLoginformErrors (email, password){//defining the login function
     errors.push('Password is required')
     password_input.parentElement.classList.add('incorrect')
     }
+    return errors;
 
 }
 const allInputs = [firstname_input, email_input, password_input, repeat_password_input ].filter( input => input != null)//array
 
 
 allInputs.forEach (input => {
-    input.addEventListener('input', () => {//using the input event
+    input.addEventListener('input', () => {
         if (input.parentElement.classList.contains('incorrect')){
             //if it contains the class incorrect
             input.parentElement.classList.remove('incorrect')
-            error_message.innerText = ''
+            error_message.innerText = ''//clear old errors
 
             
 
