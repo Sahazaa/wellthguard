@@ -6,17 +6,16 @@ const password_input= document.getElementById('password-input')
 const repeat_password_input= document.getElementById('repeat-password-input')
 const error_message= document.getElementById('error-message')
 //we have now our elements in javascript
-form.addEventListener('submit', (e) =>{//the event object e is a very special object in event listeners
-    e.preventDefault()//will prevent the default behaviour,which is submit
-    //but we only need to prevent this when there are any errors
-    let errors= [] //creating an array that we are going to fill with error messages for every error that are detected in the form 
+form.addEventListener('submit', (e) =>{//this event will be fired once the form is submitted
+    e.preventDefault()//e.preventDefault() Prevent Submit ;only need to prevent if there are any errors
+    let errors = [] //creating an array that we are going to fill with error messages 
     if(firstname_input){
     //if we have a firstname input then we are in the signup
-    errors = getSignupFormErrors(firstname_input.value, email_input.value, password_input.value,repeat_password_input.value)//they will get the value of the input fields as an argument
+    errors = getSignupFormErrors(firstname_input.value, email_input.value, password_input.value,repeat_password_input.value)//inputs to work with
 }
     else{
         //if we don't have a firstname input then we are in the login
-        errors= getLoginformErrors(email_input.value,password_input.value)
+        errors= getLoginformErrors(email_input.value,password_input.value)//variable
     }
     if (errors.length > 0 ){
         //If there are any errors inside the array
@@ -29,8 +28,8 @@ form.addEventListener('submit', (e) =>{//the event object e is a very special ob
 function getSignupFormErrors(firstname,email,password,repeatPassword){//the values that the user enter in the form
     let errors =[]//empty array
     if (firstname === '' || firstname == null ){
-    errors.push('Firstname is required')
-    firstname_input.parentElement.ClassList.add('incorrect')
+    errors.push('Firstname is required')//message pushed to the errors array
+    firstname_input.parentElement.classList.add('incorrect')//has a parent element which is the div where the class needs to be;making it visible to the user
     }
     if (email === '' || email== null ){
     errors.push('Email is required')
@@ -50,7 +49,7 @@ function getSignupFormErrors(firstname,email,password,repeatPassword){//the valu
         repeat_password_input.parentElement.classList.add('incorrect')
 
     }
-    return errors;//the errors would be written to the variable,because this is where we are calling the functions
+    return errors;//the errors would be return to the variable
 }
 function getLoginformErrors (email, password){//defining the login function
     let errors=[] //empty errors array that we will return at the end of the function
@@ -68,7 +67,7 @@ const allInputs = [firstname_input, email_input, password_input, repeat_password
 
 
 allInputs.forEach (input => {
-    input.addEventLIstener('input', () => {//using the input event
+    input.addEventListener('input', () => {//using the input event
         if (input.parentElement.classList.contains('incorrect')){
             //if it contains the class incorrect
             input.parentElement.classList.remove('incorrect')
