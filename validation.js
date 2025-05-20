@@ -6,7 +6,7 @@ const password_input= document.getElementById('password-input')
 const repeat_password_input= document.getElementById('repeat-password-input')
 const error_message= document.getElementById('error-message')
 //we have now our elements in javascript
-form.addRventListener('submit', (e) =>{//the event object e is a very special object in event listeners
+form.addEventListener('submit', (e) =>{//the event object e is a very special object in event listeners
     e.preventDefault()//will prevent the default behaviour,which is submit
     //but we only need to prevent this when there are any errors
     let errors= [] //creating an array that we are going to fill with error messages for every error that are detected in the form 
@@ -52,7 +52,20 @@ function getSignupFormErrors(firstname,email,password,repeatPassword){//the valu
     }
     return errors;//the errors would be written to the variable,because this is where we are calling the functions
 }
-const allInputs = [firstname_input, email_input, password_input, repeat_password_input ] //array
+function getLoginformErrors (email, password){//defining the login function
+    let errors=[] //empty errors array that we will return at the end of the function
+    if (email === '' || email== null ){
+    errors.push('Email is required')
+    email_input.parentElement.classList.add('incorrect')
+    }
+    if (password === '' || password== null ){
+    errors.push('Password is required')
+    password_input.parentElement.classList.add('incorrect')
+    }
+
+}
+const allInputs = [firstname_input, email_input, password_input, repeat_password_input ].filter( input => input != null)//array
+
 
 allInputs.forEach (input => {
     input.addEventLIstener('input', () => {//using the input event
