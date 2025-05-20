@@ -97,7 +97,7 @@ form input:focus{
 }
 div:has(input:focus)/*all of the div with the input where the focus is applied*/ >/*specifying to direct */ label{
     background-color:var(--text-color);
-}
+}/*now only the direct label element of the div that has a focus input will be selected*/
 form input::placeholder{
     color:var(--text-color);
     opacity:0.5;
@@ -107,7 +107,7 @@ form button{
     margin-top:10px;
     border:none;
     border-radius:1000px;
-    padding:.85em 4em;/*font size of the element*/
+    padding:.85em 4em;/*85% and 4 times the font size*/
     background-color:var(--accent-color);
     color:var(--base-color);
     font:inherit;
@@ -138,15 +138,16 @@ a:hover{
     .wrapper{
         width:min(600px,100%);/*it will take either 600px or 100% depending on the screen */
 /*so in smartphone screens,they aren't gonna see the background image anyways*/
-    }
+    border-radius:0;
+}
 }
 form div.incorrect label /*accessing the label inside*/ {
     background-color:#f06272;
 
 }
-form div.incorrect input {/*also accessing the input inside*/
+form div.incorrect input {/* higher specificity*/
     border-color:#f06272;
-}/*the root with higher specificity wins;so we add its specificity*/
+}/*form that has a div of incorrect*/
 #error-message {
     color:#f06272;
 }
