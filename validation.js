@@ -6,6 +6,7 @@ const repeat_password_input = document.getElementById('repeat-password-input')
 const error_message = document.getElementById('error-message')
 
 form.addEventListener('submit', (e) => {
+
   let errors = []
 
   if(firstname_input){
