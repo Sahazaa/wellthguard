@@ -1,21 +1,78 @@
 html {
-    overflow:scroll;
+    overflow: auto;
 }
+
+/* Optional: If you want a fallback background for the entire page, or a default */
+body {
+    background-color: #f0f0f0; /* A light grey fallback */
+    margin: 0; /* Remove default body margin */
+}
+
 .menu {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:70px;
-    margin-top:30px;
-    font-weight:bold;
-    font-size:20px;
-   background-image:url(home.jpg);
-   width:max(100%,1200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    /* width: max(100%, 1200px); */ /* You had this, adjust if needed */
+    /* Remove background-image:url(home.jpg); from here! */
 }
-button{
-    font-size:20px;
-    font-weight:bold;
+
+/* Your original menu background would go here if you want it to have its own background */
+/* For example, if 'home.jpg' was meant for the menu itself */
+/* .menu {
+    background-image: url(menu_background.jpg);
+    background-size: cover;
+    background-position: center;
+} */
+
+
+/* Styles for the "Home" section */
+.section-home {
+    background-image: url(home.jpg); /* Your specific image for the home section */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    color: white; /* Example: change text color for readability */
+    padding: 100px 20px; /* Add some padding to make the section visible */
+    min-height: 800px; /* Ensure enough height to see the background */
+    display: flex; /* Example layout */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
+/* Styles for the "Did you knew?" section */
+.section-did-you-know {
+     /* Your specific image for this section */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 20px;
+    min-height: 300px;
+    background-color: #e0e0e0; /* Fallback color */
+}
+
+/* Styles for the "Start tracking" section */
+.section-tracking {
+    /* Your specific image for this section */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 120px 20px;
+    min-height: 500px;
+    color: #333; /* Example text color */
+}
+
+
+button {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 @media (max-width: 1100px){
     .menu {
         width: min(360px,100%);
