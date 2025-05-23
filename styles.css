@@ -37,7 +37,7 @@ body {
     background-repeat: no-repeat; /* Don't repeat the image */
     color: white; /* Example: change text color for readability */
     padding: 100px 20px; /* Add some padding to make the section visible */
-    min-height: 800px; /* Ensure enough height to see the background */
+    min-height: 400px; /* Ensure enough height to see the background */
     display: flex; /* Example layout */
     flex-direction: column;
     justify-content: center;
